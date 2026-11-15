@@ -8,6 +8,12 @@ public class MovAmper : MonoBehaviour
     private float moveInput;
     private bool isGrounded;
 
+
+    public AudioSource audioSource;
+    public AudioClip[] sonidosPasos;
+    public float intervaloPasos = 0.4f;
+    private float temporizadorPasos;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();   
@@ -20,6 +26,23 @@ public class MovAmper : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false;
+        }
+
+
+
+        if (isGrounded && moveInput != 0)
+        {
+            temporizadorPasos += Time.deltaTime;
+
+            if (temporizadorPasos >= intervaloPasos)
+            {
+                PlayRandomFootstep();
+                temporizadorPasos = 0f;
+            }
+        }
+        else
+        {
+            temporizadorPasos = 0f;
         }
     }
 
@@ -44,4 +67,14 @@ public class MovAmper : MonoBehaviour
     {
         isGrounded = false;
     }
+
+    void PlayRandomFootstep()
+    {
+        if (sonidosPasos.Length == 0) return;
+
+        int randomIndex = Random.Range(0, sonidosPasos.Length);
+
+        audioSource.PlayOneShot(sonidosPasos[randomIndex]);
+    }
+
 }
