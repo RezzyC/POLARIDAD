@@ -895,9 +895,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.19692737
+    width: 1.3307148
+    height: 0.670391
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -927,7 +927,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1760946, y: -2.0065298, z: -9}
+  m_LocalPosition: {x: 0.17130046, y: -2.0065298, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1546,6 +1546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::botonPresionado
   Presionado: 0
+  cajasPermitidas: []
 --- !u!1 &703144920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +1730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::botonPresionado
   Presionado: 0
+  cajasPermitidas: []
 --- !u!1 &731068499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,6 +3122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::botonPresionado
   Presionado: 0
+  cajasPermitidas: []
 --- !u!1 &1956905634
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,8 +3969,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.18, y: -6.42, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 133988552}
   - {fileID: 600800394}
