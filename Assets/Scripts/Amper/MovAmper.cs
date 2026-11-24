@@ -4,10 +4,13 @@ public class MovAmper : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private float jumpForce = 3f;
+    [SerializeField] private float distanciaSuelo = 0.2f;
+    [SerializeField] private LayerMask capaSuelo;
+
     private Rigidbody2D rb;
+    private Collider2D col;
     private float moveInput;
     private bool isGrounded;
-
 
     public AudioSource audioSource;
     public AudioClip[] sonidosPasos;
@@ -16,19 +19,31 @@ public class MovAmper : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
     }
 
     void Update()
     {
+        Vector2 origenRayo = new Vector2(col.bounds.center.x, col.bounds.min.y - 0.02f);
+        RaycastHit2D hit = Physics2D.Raycast(origenRayo, Vector2.down, distanciaSuelo, capaSuelo);
+
+        if (hit.collider != null)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+
         moveInput = Input.GetAxisRaw("Horizontal");
+
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false;
         }
-
-
 
         if (isGrounded && moveInput != 0)
         {
@@ -51,30 +66,25 @@ public class MovAmper : MonoBehaviour
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        foreach (ContactPoint2D contact in collision.contacts)
-        {
-            if (contact.normal.y > 0.5f)
-            {
-                isGrounded = true;
-                break;
-            }
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isGrounded = false;
-    }
-
     void PlayRandomFootstep()
     {
-        if (sonidosPasos.Length == 0) return;
+        if (sonidosPasos.Length == 0)
+        {
+            return;
+        }
 
         int randomIndex = Random.Range(0, sonidosPasos.Length);
-
         audioSource.PlayOneShot(sonidosPasos[randomIndex]);
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Collider2D c = GetComponent<Collider2D>();
+        if (c != null)
+        {
+            Gizmos.color = Color.green;
+            Vector3 origen = new Vector3(c.bounds.center.x, c.bounds.min.y - 0.02f, 0f);
+            Gizmos.DrawLine(origen, origen + Vector3.down * distanciaSuelo);
+        }
+    }
 }

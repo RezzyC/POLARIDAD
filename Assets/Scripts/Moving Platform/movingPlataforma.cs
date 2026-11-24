@@ -9,10 +9,12 @@ public class movingPlataforma : MonoBehaviour
 
     private Transform destino;
     private bool activada = false;
+    private Rigidbody2D rb;
 
     void Start()
     {
         destino = puntoArriba;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -27,21 +29,27 @@ public class movingPlataforma : MonoBehaviour
                 break;
             }
         }
+    }
 
+    void FixedUpdate()
+    {
         if (activada)
         {
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                destino.position,
-                velocidad * Time.deltaTime
-            );
+            Vector2 nuevaPosicion = Vector2.MoveTowards(rb.position, destino.position, velocidad * Time.fixedDeltaTime);
+            rb.MovePosition(nuevaPosicion);
 
-            if (Vector2.Distance(transform.position, destino.position) < 0.05f)
+            if (Vector2.Distance(rb.position, destino.position) < 0.05f)
             {
-                destino = destino == puntoArriba
-                    ? puntoAbajo
-                    : puntoArriba;
+                if (destino == puntoArriba)
+                {
+                    destino = puntoAbajo;
+                }
+                else
+                {
+                    destino = puntoArriba;
+                }
             }
         }
     }
 }
+ 
