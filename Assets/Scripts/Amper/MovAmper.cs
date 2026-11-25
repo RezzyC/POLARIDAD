@@ -41,7 +41,7 @@ public class MovAmper : MonoBehaviour
         }
 
         moveInput = Input.GetAxisRaw("Horizontal");
-        animator.SetFloat("movement", Mathf.Abs(moveInput)); //creo q es aqui...
+        animator.SetFloat("movement", Mathf.Abs(moveInput)); //animacion correr
 
         if (moveInput != 0)
         {
@@ -53,8 +53,10 @@ public class MovAmper : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false;
 
-            
+
         }
+
+        animator.SetBool("isGrounded", isGrounded);
 
         if (isGrounded && moveInput != 0)
         {
