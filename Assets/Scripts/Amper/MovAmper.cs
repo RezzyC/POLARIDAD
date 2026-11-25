@@ -17,6 +17,9 @@ public class MovAmper : MonoBehaviour
     public float intervaloPasos = 0.4f;
     private float temporizadorPasos;
 
+
+    public Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,11 +41,19 @@ public class MovAmper : MonoBehaviour
         }
 
         moveInput = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("movement", Mathf.Abs(moveInput)); //creo q es aqui...
+
+        if (moveInput != 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = moveInput > 0;
+        }
 
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false;
+
+            
         }
 
         if (isGrounded && moveInput != 0)

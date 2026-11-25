@@ -731,9 +731,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.055427253
+    y: -0.1561644
     width: 1
-    height: 0.88683605
+    height: 1.3150685
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -763,7 +763,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.4750915, y: 1.29991, z: -9}
+  m_LocalPosition: {x: 4.506298, y: -0.004619956, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3465,6 +3465,7 @@ GameObject:
   - component: {fileID: 2134230697}
   - component: {fileID: 2134230698}
   - component: {fileID: 2134230699}
+  - component: {fileID: 2134230700}
   m_Layer: 0
   m_Name: AMPER
   m_TagString: Untagged
@@ -3521,12 +3522,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -155264127503830802, guid: 9c2d46a3892cec04f98a77df7f4e36d7, type: 3}
+  m_Sprite: {fileID: 5734348669156614166, guid: d6a26745e53bb024284996f11ce16da9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.165, y: 2.0175}
+  m_Size: {x: 0.78, y: 1.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3582,17 +3583,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.013906598, y: 0.07136232}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.165, y: 2.0175}
-    newSize: {x: 1.165, y: 2.0175}
+    pivot: {x: 0.5000001, y: 0.4764696}
+    oldSize: {x: 1.625, y: 2.8125}
+    newSize: {x: 0.78, y: 1.35}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2.1}
+  m_Size: {x: 1.6496576, y: 2.8428817}
   m_EdgeRadius: 0
 --- !u!50 &2134230696
 Rigidbody2D:
@@ -3646,6 +3647,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 18e0af4bb069e3748b9b1fa4ef4482cb, type: 3}
   - {fileID: 8300000, guid: 1d3a296b043b238418d6e18f37c19306, type: 3}
   intervaloPasos: 0.3
+  animator: {fileID: 2134230700}
 --- !u!114 &2134230698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3761,6 +3763,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2134230700
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134230692}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15f6b5def4e7d3b439ca4f770f126820, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
