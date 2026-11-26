@@ -42,5 +42,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Fondo
+    uniqueID: 1637014205
+    locked: 0
+  - name: Objetos
+    uniqueID: 4255207871
+    locked: 0
+  - name: Jugador
+    uniqueID: 188122133
+    locked: 0
+  - name: Limites
+    uniqueID: 3006428699
+    locked: 0
   m_RenderingLayers:
   - Default
